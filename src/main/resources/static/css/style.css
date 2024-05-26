@@ -1,3 +1,17 @@
 .navbar-brand {
     font-weight: bold;
 }
+
+.carousel-caption  {    
+    position: absolute;
+    top: 50%;  /* Позиционирует текст по центру по вертикали */
+    left: 50%; /* Позиционирует текст по центру по горизонтали */
+    transform: translate(-50%, -50%); /*Смещает текст, чтобы центрировать его */
+    color: white; /* Цвет текста */
+    font-size: 24px; /* Размер текста */
+    /* background-color: rgba(0, 0, 0, 0.5); Полупрозрачный черный фон */
+    padding: 10px; /* Отступы внутри текста */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+
