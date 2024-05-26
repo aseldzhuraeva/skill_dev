@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import skill_dev.models.entities.Task;
 import skill_dev.python.PythonRunner;
 import skill_dev.services.TaskService;
@@ -21,20 +22,23 @@ public class TaskController {
     @Autowired
     private PythonRunner pythonRunner;
 
-    @PostMapping("/task")
-    public String runTask()
+    @PostMapping("/task/{id}")
+    public String runTask(@RequestParam("validationTextarea") String validationTextarea)
     {
-        //String result = pythonRunner.executePythonScript("print(1+2)");
+        System.out.println(validationTextarea);
 
-        //System.out.println(result);
+        String result = pythonRunner.executePythonFunction(validationTextarea, "f", 10, 20);
 
-        String script = "def f(a,b):\n\treturn a+b\n";
+        System.out.println("Result:");
+        System.out.println(result);
 
-        String result = pythonRunner.executePythonFunction(script, "f", 10,20);
-
-        System.out.println(">>" + result.trim() + "<<");
-
-        return "index";
+        if (result.equals("20"))
+        {
+            return "true_check_answer";
+        }
+        else {
+            return "false_check_answer";
+        }
     }
 
     @GetMapping("/")
@@ -47,7 +51,7 @@ public class TaskController {
 
     @GetMapping("/task/{id}")
     public String getTaskById(@PathVariable Long id, Model model){
-        try{
+        /*try{
             Task task = taskService.getTaskById(id);
             model.addAttribute("title", task.getTitle());
             model.addAttribute("description", task.getDescription());
@@ -56,6 +60,8 @@ public class TaskController {
         }
         catch (IllegalArgumentException e){
             return "index";
-        }
+        }*/
+        return "task";
+
     }
 }

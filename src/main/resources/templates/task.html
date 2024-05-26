@@ -47,10 +47,11 @@
           <div class="col-lg-1"></div>
             
           <div class="col-lg-10">
-            <form>
+              <p>Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
+            <form action="/task/1" method="POST">
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Put your answer </label>
-                <textarea class="form-control custom" id="validationTextarea" 
+                <textarea class="form-control custom" id="validationTextarea" name="validationTextarea"
                 placeholder="Required example textarea" style="outline: none
                 !important ;"></textarea>
               </div>  
@@ -62,7 +63,8 @@
             
               <div class="mb-3">
                 <!-- <button class="btn btn-primary" type="submit" href="check_answer.html">Submit form</button> -->
-                <a href="true_check_answer.html" class="btn btn-primary">check answer</a>
+
+                  <button type="submit" class="btn btn-primary">check answer</button>
               </div>
             </form>
           </div>
