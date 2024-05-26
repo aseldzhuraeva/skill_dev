@@ -89,6 +89,24 @@ section {
     text-decoration: underline;
 }
 
+
+.wrapper .login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a{
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link p a:hover{
+    text-decoration: underline;
+}
+
+
+
 /* .register-btn {
     border-radius: 40px;
     text-align: center;
