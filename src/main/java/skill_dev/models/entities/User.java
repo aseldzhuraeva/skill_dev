@@ -13,12 +13,14 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "users")
 public class User extends BaseEntity{
     String username;
     String password;
     Role role;
     String firstName;
     String lastName;
+    String email;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<Submission> submissions;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
