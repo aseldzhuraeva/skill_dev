@@ -1,2 +1,7 @@
-package skill_dev.services;public interface CurrentUserService {
+package skill_dev.services;
+
+import skill_dev.models.entities.User;
+
+public interface CurrentUserService {
+    User getCurrentUser();
 }

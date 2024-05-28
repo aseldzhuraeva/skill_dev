@@ -13,7 +13,7 @@ import skill_dev.services.UserService;
 
 import javax.annotation.PostConstruct;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class InitDB {
     private final TaskService taskService;
@@ -21,7 +21,7 @@ public class InitDB {
     private final SubmissionService submissionService;
     private final GradeService gradeService;
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
         initTasks();
         initUsers();
@@ -39,28 +39,25 @@ public class InitDB {
     }
 
     private void initUsers(){
-        createUserRequest("aselya", "12345", "Асель","Джураева");
-        createUserRequest("tukuncho", "12345", "Түкүнчө","Паланчаев");
-        createUserRequest("palancha", "12345", "Түкүнчө2", "Паланчаев2");
-
+        createUserRequest("aselya", "12345", "Асель","Джураева", "aseldzhuraeva@gmail.com", "12345");
     }
 
     private void initSubmissions(){
         submit(1L, 1L, "2 + 2 = 4");
         submit(2L, 1L, "Bishkek");
-        submit(1L, 2L, "2 + 2 = 4");
-        submit(2L, 2L, "Osh");
-        submit(1L, 3L, "2 + 2 = 22");
-        submit(2L, 3L, "Toktogul");
+//        submit(1L, 2L, "2 + 2 = 4");
+//        submit(2L, 2L, "Osh");
+//        submit(1L, 3L, "2 + 2 = 22");
+//        submit(2L, 3L, "Toktogul");
     }
 
     private void initGrades(){
         estimate(1L, 2F, "Excellent");
         estimate(2L, 2F, "Good job");
-        estimate(3L, 2F, "Good job");
-        estimate(4L, 0F, "You seem like oshskiy)");
-        estimate(5L, 0F, "Think better");
-        estimate(6L, 0F, "Toktogul is not ozuncho:)");
+//        estimate(3L, 2F, "Good job");
+//        estimate(4L, 0F, "You seem like oshskiy)");
+//        estimate(5L, 0F, "Think better");
+//        estimate(6L, 0F, "Toktogul is not ozuncho:)");
     }
 
 
@@ -76,9 +73,9 @@ public class InitDB {
     }
 
     //user
-    private void createUserRequest(String username, String password, String firstName, String lastName) {
+    private void createUserRequest(String username, String password, String firstName, String lastName, String email, String password2) {
         UserCreateRequest user = new UserCreateRequest(
-                username, password, firstName, lastName
+                username, password, firstName, lastName, email, password2
         );
         userService.register(user);
     }
