@@ -43,6 +43,7 @@
       </header>
 
       <section>
+        <div class="container-fluid mt-4" th:unless="${#lists.isEmpty(tasks)}">
         <div class="row">
           <div class="col-lg-1"></div>
             
@@ -53,7 +54,7 @@
                 <label for="validationTextarea" class="form-label">Put your answer </label>
                 <textarea class="form-control custom" id="validationTextarea" name="validationTextarea"
                 placeholder="Required example textarea" style="outline: none
-                !important ;"></textarea>
+                !important ;"  rows="10"></textarea>
               </div>  
             
               <!-- форма для файлов           
@@ -70,6 +71,7 @@
           </div>
           <div class="col-lg-1"></div> 
       </div>
+    </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

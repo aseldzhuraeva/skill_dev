@@ -10,10 +10,35 @@
 </head>
 <body>
   <header>
+    <div class="row">
+      <div class="col-lg-1"></div>
+
+      <div class="col-lg-10">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="home.html">SkillDev</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="log_in.html">Registration</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav> 
+      </div>
+      <div class="col-lg-1"></div> 
+    </div>
   </header>
     <section>
       <div class="wrapper">
-        <h1>Register  </h1>
+        <h1>Registration</h1>
         <div class="input-box">
             <input type="text" placeholder="Name" required>
         </div> 
@@ -29,8 +54,11 @@
         <div class="input-box">
           <input type="password" placeholder="Password" required>
         </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" required>
+        </div>
         <div class="register-btn">
-          <a href="index.html">Register</a>
+          <a href="index.html">Registration</a>
         </div>
         <div class="login-link">
           <p>Already have an account? <a href="log_in.html">Login now</a></p>
