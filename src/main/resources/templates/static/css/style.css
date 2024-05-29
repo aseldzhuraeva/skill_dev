@@ -42,8 +42,7 @@
 }
 
 
-/* фото профиля 
-position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-schrink-0*/
+/* фото профиля */
 
 .avatar-user {
     border-radius: 50%;
@@ -52,4 +51,28 @@ position-relative d-inline-block col-2 col-md-12 mr-3 mr-md-0 flex-schrink-0*/
 .avatar {
     line-height: 1;
     box-shadow: 0 0 0 1px #ffffff26;
+}
+
+
+/* navbar */
+
+.header {
+    background-color: hsla(17.14,33.33%,95.88%,1);
+}
+
+.bg-body-tertiary {
+    background-color: hsla(17.14,33.33%,95.88%,1) !important;
+}
+
+/* text color */
+
+.nav-link {
+    color: hsla( 0,0%,0% ,1);
+}
+
+
+/* background color */
+
+*{
+    background-color: hsla(17.14,33.33%,95.88%,1);
 }
