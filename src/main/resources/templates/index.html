@@ -26,10 +26,10 @@
                       <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="rating.html">Rating</a>
+                      <a class="nav-link" href="/ranking-list">Rating</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="home.html">Log out</a>
+                      <a class="nav-link" href="/login">Log in</a>
                     </li>
                   </ul>
                 </div>
@@ -57,64 +57,20 @@
 
           <div class="col-sm-8">
             <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
+              <div class="card-header" th:text="'Задание ' + ${task.id}">
                 Задание 1
               </div>
               <div class="card-body">
                 <h5 class="card-title" th:text="${task.title}"></h5>
                 <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary">Приступить к заданию</a>
+                <a th:href="@{/task/{id}(id=${task.id})}" class="btn btn-primary">Приступить к заданию</a>
               </div>
             </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
-                Задание 2
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary disabled" aria-disabled="true">Приступить к заданию</a>
-              </div>
-            </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
-                Задание 3
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary disabled" aria-disabled="true">Приступить к заданию</a>
-              </div>
-            </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
-                Задание 4
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary disabled" aria-disabled="true">Приступить к заданию</a>
-              </div>
-            </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
-                Задание 5
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary disabled" aria-disabled="true" >Приступить к заданию</a>
-              </div>
-            </div>
-          </div>
           <!-- <div class="col-lg-1"></div> -->
         </div>
 
 
+      </div>
       </div>
     </section>
   

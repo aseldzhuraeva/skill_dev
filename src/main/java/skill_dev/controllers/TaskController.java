@@ -46,6 +46,14 @@ public class TaskController {
         List<Task> tasks = taskService.getAllTasks();
         System.out.println(tasks.size());
         model.addAttribute("tasks", tasks);
+        return "home";
+    }
+
+    @GetMapping("/tasks")
+    public String getTasksPage(Model model){
+        List<Task> tasks = taskService.getAllTasks();
+        System.out.println(tasks.size());
+        model.addAttribute("tasks", tasks);
         return "index";
     }
 

@@ -11,5 +11,12 @@ import lombok.experimental.FieldDefaults;
 public class TaskCreateRequest {
     String title;
     String description;
-    Float maxPoints;
+
+    String image;
+
+    String input;
+
+    String answer;
+
+    Float max_points;
 }
