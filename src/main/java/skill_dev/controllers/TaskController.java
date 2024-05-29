@@ -2,6 +2,8 @@ package skill_dev.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import skill_dev.models.entities.Task;
+import skill_dev.models.entities.User;
 import skill_dev.python.PythonRunner;
 import skill_dev.services.TaskService;
 
@@ -50,10 +53,11 @@ public class TaskController {
     }
 
     @GetMapping("/tasks")
-    public String getTasksPage(Model model){
+    public String getTasksPage(Model model, @AuthenticationPrincipal User user){
         List<Task> tasks = taskService.getAllTasks();
         System.out.println(tasks.size());
         model.addAttribute("tasks", tasks);
+        model.addAttribute("user", user);
         return "index";
     }
 
@@ -69,6 +73,8 @@ public class TaskController {
         catch (IllegalArgumentException e){
             return "index";
         }*/
+        Task task = taskService.getTaskById(id);
+        model.addAttribute("task", task);
         return "task";
 
     }

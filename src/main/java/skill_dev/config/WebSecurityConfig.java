@@ -32,11 +32,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+        /*
+               http
                 .csrf().disable()
                 .cors().disable()
                 .authorizeRequests(requests -> requests
                         .anyRequest().permitAll())
+                .formLogin(login -> login
+                        .loginPage("/login")
+                        .failureUrl("/login?error")
+                        .usernameParameter("username")
+                        .defaultSuccessUrl("/tasks")
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll());
+         */
+        http
+                .csrf().disable()
+                .cors().disable()
+                .authorizeRequests(requests -> requests
+                        .antMatchers("/login").permitAll()
+                        .anyRequest().authenticated())
                 .formLogin(login -> login
                         .loginPage("/login")
                         .failureUrl("/login?error")

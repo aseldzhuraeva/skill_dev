@@ -43,13 +43,15 @@
       </header>
 
       <section>
-        <div class="container-fluid mt-4" th:unless="${#lists.isEmpty(tasks)}">
+        <div class="container-fluid mt-4">
         <div class="row">
           <div class="col-lg-1"></div>
             
           <div class="col-lg-10">
-              <p>Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-            <form action="/task/1" method="POST">
+              <h1 th:text="${task.title}"></h1>
+              <p th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
+              <p th:text="'Баллы: ' + ${task.max_points}">Баллы: 100</p>
+              <form action="/task/1" method="POST">
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Put your answer </label>
                 <textarea class="form-control custom" id="validationTextarea" name="validationTextarea"
