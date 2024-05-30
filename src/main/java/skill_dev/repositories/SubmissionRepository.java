@@ -6,4 +6,5 @@ import skill_dev.models.entities.Submission;
 
 @Repository
 public interface SubmissionRepository extends JpaRepository<Submission, Long> {
+    boolean existsByTaskIdAndOk(Long taskId, Boolean ok);
 }

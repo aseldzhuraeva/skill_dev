@@ -44,7 +44,7 @@
 
     <section>
       <div class="col-lg-1"></div>
-      <div class="container-fluid mt-4" th:unless="${#lists.isEmpty(tasks)}">
+      <div class="container-fluid mt-4" th:unless="${#lists.isEmpty(tasksExtended)}">
       <div class="row">
           <div class="col-sm-3 mt-5 mb-1 mb-sm-0" style="z-index: 4;">
             <img src="images/user.png" alt="user foto" width="260" height="260" class="avatar avatar-user width-full border color-bg-default">
@@ -56,15 +56,16 @@
 
 
           <div class="col-sm-8">
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header" th:text="'Задание ' + ${task.id}">
+            <div class="card mb-4" th:each="taskExtended: ${tasksExtended}">
+              <div class="card-header" th:text="'Задание ' + ${taskExtended.task.id}">
                 Задание 1
               </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a th:href="@{/task/{id}(id=${task.id})}" class="btn btn-primary">Приступить к заданию</a>
-              </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${taskExtended.task.title}"></h5>
+                    <p class="card-text" th:text="${taskExtended.task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
+                    <a th:if="${taskExtended.locked}" class="btn btn-primary disabled" href="#" style="pointer-events: none;">Задание недоступно</a>
+                    <a th:unless="${taskExtended.locked}" th:href="@{/task/{id}(id=${taskExtended.task.id})}" class="btn btn-primary">Приступить к заданию</a>
+                </div>
             </div>
           <!-- <div class="col-lg-1"></div> -->
         </div>

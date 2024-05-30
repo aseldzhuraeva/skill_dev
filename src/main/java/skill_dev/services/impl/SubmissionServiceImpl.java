@@ -23,7 +23,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 
     @Transactional
     @Override
-    public void submit(SubmitRequest request) {
+    public Submission submit(SubmitRequest request) {
         User user = userService.getUserById(request.getUserId());
         Task task = taskService.getTaskById(request.getTaskId());
         Submission submission = Submission.builder()
@@ -35,10 +35,18 @@ public class SubmissionServiceImpl implements SubmissionService {
                 .build();
 
         submissionRepository.save(submission);
+        return submission;
     }
 
     @Override
     public Submission getSubmissionById(Long id) {
         return submissionRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("there is no such submission"));
+    }
+
+
+    @Override
+    public Boolean containsCompletedTask(Long id)
+    {
+        return submissionRepository.existsByTaskIdAndOk(id, true);
     }
 }

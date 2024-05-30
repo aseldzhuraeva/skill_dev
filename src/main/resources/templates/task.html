@@ -48,10 +48,11 @@
           <div class="col-lg-1"></div>
             
           <div class="col-lg-10">
-              <h1 th:text="${task.title}"></h1>
-              <p th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-              <p th:text="'Баллы: ' + ${task.max_points}">Баллы: 100</p>
-              <form  th:action="@{/task/{id}(id=${task.id})}" method="POST">
+              <h1 th:text="${taskExtended.task.title}"></h1>
+              <p th:text="${taskExtended.task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
+              <p th:text="'Баллы: ' + ${taskExtended.task.max_points}">Баллы: 100</p>
+              <div th:unless="${taskExtended.locked}">
+              <form  th:action="@{/task/{id}(id=${taskExtended.task.id})}" method="POST">
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Put your answer </label>
                 <textarea class="form-control custom" id="validationTextarea" name="validationTextarea"
@@ -70,6 +71,9 @@
                   <button type="submit" class="btn btn-primary">check answer</button>
               </div>
             </form>
+              </div>
+              <div th:if="${taskExtended.locked}">Задание недоступно</div>
+
           </div>
           <div class="col-lg-1"></div> 
       </div>
