@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 @Entity
@@ -15,10 +16,19 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "tasks")
 public class Task extends BaseEntity{
     String title;
     String description;
-    Float maxPoints;
+
+    String image;
+
+    String input;
+
+    String answer;
+
+    Double max_points;
+
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
     List<Submission> submissions;
 }

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="static\css/style.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="static\css/login.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static\css/style.css" th:href="@{/css/style.css}" media="screen">
+    <link rel="stylesheet" type="text/css" href="static\css/login.css" th:href="@{/css/login.css}" media="screen">
     <title>Task</title>
 </head>
 <body>
@@ -16,31 +16,32 @@
           <div class="col-lg-10">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="index.html">SkillDev</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="rating.html">Rating</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="home.html">Log out</a>
-                      </li>
-                    </ul>
-                  </div>
+                    <a class="navbar-brand" href="/">SkillDev</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/tasks">Tasks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/rating">Rating</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Log out</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </nav> 
-          </div>
-            
-  
-          <div class="col-lg-1"></div> 
+            </nav>
         </div>
-      </header>
+        <div class="col-lg-1"></div>
+    </div>
+</header>
 
       <section class="section-task">
         <div class="container-fluid mt-4" th:unless="${#lists.isEmpty(tasks)}">
@@ -48,8 +49,11 @@
           <div class="col-lg-1"></div>
             
           <div class="col-lg-10">
-              <p>Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-            <form action="/task/1" method="POST">
+              <h1 th:text="${taskExtended.task.title}"></h1>
+              <p th:text="${taskExtended.task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
+              <p th:text="'Баллы: ' + ${taskExtended.task.max_points}">Баллы: 100</p>
+              <div th:unless="${taskExtended.locked}">
+              <form  th:action="@{/task/{id}(id=${taskExtended.task.id})}" method="POST">
               <div class="mb-3">
                 <!-- <label for="validationTextarea" class="form-label">Put your answer </label> -->
                 <textarea class="form-control custom" id="validationTextarea" name="validationTextarea"
@@ -67,6 +71,9 @@
                   <button type="submit" class="btn btn-primary">check answer</button>
               </div>
             </form>
+              </div>
+              <div th:if="${taskExtended.locked}">Задание недоступно</div>
+
           </div>
           <div class="col-lg-1"></div> 
       </div>

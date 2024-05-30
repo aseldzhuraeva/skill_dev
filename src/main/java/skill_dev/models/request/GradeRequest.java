@@ -10,6 +10,6 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class GradeRequest {
     Long submissionId;
-    Float score;
+    Double score;
     String feedback;
 }

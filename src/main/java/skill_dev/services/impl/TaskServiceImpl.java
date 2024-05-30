@@ -22,11 +22,12 @@ public class TaskServiceImpl implements TaskService {
         Task task = Task.builder()
                 .title(request.getTitle())
                 .description(request.getDescription())
-                .maxPoints(request.getMaxPoints())
+                .image(request.getImage())
+                .input(request.getInput())
+                .answer(request.getAnswer())
+                .max_points(request.getMax_points())
                 .build();
         taskRepository.save(task);
-
-
     }
 
     @Override
@@ -37,5 +38,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task getTaskById(Long id){
         return taskRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("there is no such task"));
+    }
+
+    @Override
+    public long countTasks()
+    {
+        return taskRepository.count();
     }
 }

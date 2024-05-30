@@ -9,118 +9,66 @@
     <title>SkillDev</title>
 </head>
 <body>
-    <header>
-      <div class="row header">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-              <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <a class="navbar-brand" href="index.html">SkillDev</a>
-              
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="rating.html">Rating</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="home.html">Log out</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav> 
-        </div>
-        <div class="col-lg-1"></div> 
-      </div>
-    </header>
+<header>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <a class="navbar-brand" href="index.html">SkillDev</a> 
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/tasks">Tasks</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/rating">Rating</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout">Log out</a>
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+    </div>
+    <div class="col-lg-1"></div> 
+  </div>
+</header>
 
     <section>
       <div class="col-lg-1"></div>
-      <div class="container-fluid mt-4" th:unless="${#lists.isEmpty(tasks)}">
+      <div class="container-fluid mt-4" th:unless="${#lists.isEmpty(tasksExtended)}">
       <div class="row">
           <div class="col-sm-3 mt-5 mb-1 mb-sm-0" style="z-index: 4;">
             <img src="images/user.png" alt="user foto" width="260" height="260" class="avatar avatar-user width-full border color-bg-default">
-            <h3>
-              Nurzada
+            <h3 th:text="${user.firstName} + ' ' + ${user.lastName}">
+
             </h3>
-            <p>aldshanovanurzada@gmail.com</p>
+            <p th:text="${user.email}">aldshanovanurzada@gmail.com</p>
           </div>
 
 
           <div class="col-sm-8">
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
+            <div class="card mb-4" th:each="taskExtended: ${tasksExtended}">
+              <div class="card-header" th:text="'Задание ' + ${taskExtended.task.id}">
                 Задание 1
               </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary">Приступить к заданию</a>
-              </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${taskExtended.task.title}"></h5>
+                    <p class="card-text" th:text="${taskExtended.task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
+                    <a th:if="${taskExtended.locked}" class="btn btn-primary disabled" href="#" style="pointer-events: none;">Задание недоступно</a>
+                    <a th:unless="${taskExtended.locked}" th:href="@{/task/{id}(id=${taskExtended.task.id})}" class="btn btn-primary">Приступить к заданию</a>
+                </div>
             </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header example-header2">
-                Задание 2
-              </div>
-              <div class="card-body example-body2">
-                <p class="card-text example-text2" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.
-                </p>
-                <a href="task_2.html" class="btn btn-primary  example-btn2" aria-disabled="true">Приступить к заданию</a>
-              </div>
-            </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header example-header2">
-                Задание 3
-              </div>
-              <div class="card-body example-body2">
-                <p class="card-text example-text2" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.
-                </p>
-                <a href="task_2.html" class="btn btn-primary  example-btn2" aria-disabled="true">Приступить к заданию</a>
-              </div>
-            </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
-                Задание 4
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary disabled" aria-disabled="true">Приступить к заданию</a>
-              </div>
-            </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
-                Задание 5
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary disabled" aria-disabled="true">Приступить к заданию</a>
-              </div>
-            </div>
-
-            <div class="card mb-4" th:each="task: ${tasks}">
-              <div class="card-header">
-                Задание 6 
-              </div>
-              <div class="card-body">
-                <h5 class="card-title" th:text="${task.title}"></h5>
-                <p class="card-text" th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
-                <a href="task.html" class="btn btn-primary disabled" aria-disabled="true" >Приступить к заданию</a>
-              </div>
-            </div>
-          </div>
           <!-- <div class="col-lg-1"></div> -->
         </div>
 
 
+      </div>
       </div>
     </section>
   

@@ -6,6 +6,9 @@ import skill_dev.models.request.SubmitRequest;
 import java.util.List;
 
 public interface SubmissionService {
-    void submit(SubmitRequest request);
+    Submission submit(SubmitRequest request);
     Submission getSubmissionById(Long id);
+
+
+    Boolean containsCompletedTask(Long id, Long userId);
 }

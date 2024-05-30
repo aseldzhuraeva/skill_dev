@@ -11,4 +11,6 @@ public interface TaskService {
     List<Task> getAllTasks();
     Task getTaskById(Long id);
 
+    long countTasks();
+
 }

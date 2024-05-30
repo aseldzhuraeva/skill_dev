@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Getter
@@ -14,8 +15,9 @@ import javax.persistence.OneToOne;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "rankings")
 public class Ranking extends BaseEntity{
     @OneToOne(fetch = FetchType.LAZY)
     User user;
-    Float totalPoints;
+    Double totalPoints;
 }

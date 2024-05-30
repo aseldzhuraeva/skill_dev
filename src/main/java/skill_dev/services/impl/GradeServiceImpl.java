@@ -21,7 +21,7 @@ public class GradeServiceImpl implements GradeService {
     public void estimate(GradeRequest request) {
         Submission submission = submissionService.getSubmissionById(request.getSubmissionId());
 
-        if (request.getScore() <= submission.getTask().getMaxPoints() ){
+        if (request.getScore() <= submission.getTask().getMax_points() ){
             Grade grade = Grade.builder()
                     .score(request.getScore())
                     .feedback(request.getFeedback() != null ? request.getFeedback() : "")
