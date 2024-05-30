@@ -12,4 +12,6 @@ public class SubmitRequest {
     Long taskId;
     Long userId;
     String content;
+
+    Boolean ok;
 }

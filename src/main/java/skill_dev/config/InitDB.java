@@ -23,7 +23,7 @@ public class InitDB {
 
     @PostConstruct
     public void init(){
-        //initTasks();
+        initTasks();
         initUsers();
         initSubmissions();
         initGrades();
@@ -31,9 +31,10 @@ public class InitDB {
 
     private void initTasks(){
 
-        createTask("Сумма чисел", "Напишите программу, которая принимает 2 числа через пробел, например \"3 4\" и выводит на экран сумму этих чисел.", "", "1 4", "5", 2.0f);
-        createTask("Переворот строки", "Напишите программу, которая принимает на вход строку и выводим на экран эту же строку наоборот.", "", "abc", "bca", 2.0f);
-
+        if (taskService.countTasks() == 0) {
+            createTask("Сумма чисел", "Напишите программу, которая принимает 2 числа через пробел, например \"3 4\" и выводит на экран сумму этих чисел.", "", "1 4", "5", 2.0f);
+            createTask("Переворот строки", "Напишите программу, которая принимает на вход строку и выводим на экран эту же строку наоборот.", "", "abc", "cba", 2.0f);
+        }
     }
 
     private void initUsers(){
@@ -83,8 +84,8 @@ public class InitDB {
 
 
     //submission
-    private void submit(Long taskID, Long userID, String content){
-        SubmitRequest submitRequest = new SubmitRequest(taskID, userID, content);
+    private void submit(Long taskID, Long userID, String content, Boolean ok){
+        SubmitRequest submitRequest = new SubmitRequest(taskID, userID, content, ok);
         submissionService.submit(submitRequest);
     }
 

@@ -23,4 +23,6 @@ public class Submission extends BaseEntity{
     User user;
     @ManyToOne
     Task task;
+
+    Boolean ok;
 }

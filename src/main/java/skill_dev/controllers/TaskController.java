@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import skill_dev.models.entities.Task;
 import skill_dev.models.entities.User;
+import skill_dev.models.request.SubmitRequest;
 import skill_dev.python.PythonRunner;
+import skill_dev.services.SubmissionService;
 import skill_dev.services.TaskService;
 
 import java.util.List;
@@ -25,17 +27,35 @@ public class TaskController {
     @Autowired
     private PythonRunner pythonRunner;
 
+    private final SubmissionService submissionService;
+
     @PostMapping("/task/{id}")
-    public String runTask(@RequestParam("validationTextarea") String validationTextarea)
+    public String runTask(@PathVariable Long id, @AuthenticationPrincipal User user, @RequestParam("validationTextarea") String validationTextarea, Model model)
     {
+        if (user == null)
+        {
+            return "redirect:/login";
+        }
+
+        Task task = taskService.getTaskById(id);
+
         System.out.println(validationTextarea);
 
-        String result = pythonRunner.executePythonFunction(validationTextarea, "f", 10, 20);
+        String result = pythonRunner.executePythonScript(validationTextarea, task.getInput());
+
 
         System.out.println("Result:");
         System.out.println(result);
+        result = result.trim();
 
-        if (result.equals("20"))
+        boolean ok = result.equals(task.getAnswer());
+
+        SubmitRequest submitRequest = new SubmitRequest(task.getId(), user.getId(), result, ok);
+        submissionService.submit(submitRequest);
+
+        model.addAttribute("task", task);
+        model.addAttribute("submitRequest", submitRequest);
+        if (ok)
         {
             return "true_check_answer";
         }
@@ -54,6 +74,10 @@ public class TaskController {
 
     @GetMapping("/tasks")
     public String getTasksPage(Model model, @AuthenticationPrincipal User user){
+        if (user == null)
+        {
+            return "redirect:/login";
+        }
         List<Task> tasks = taskService.getAllTasks();
         System.out.println(tasks.size());
         model.addAttribute("tasks", tasks);
@@ -62,20 +86,13 @@ public class TaskController {
     }
 
     @GetMapping("/task/{id}")
-    public String getTaskById(@PathVariable Long id, Model model){
-        /*try{
-            Task task = taskService.getTaskById(id);
-            model.addAttribute("title", task.getTitle());
-            model.addAttribute("description", task.getDescription());
-            model.addAttribute("maxPoints", task.getMaxPoints());
-            return "zadanie";
+    public String getTaskById(@PathVariable Long id, @AuthenticationPrincipal User user, Model model){
+        if (user == null)
+        {
+            return "redirect:/login";
         }
-        catch (IllegalArgumentException e){
-            return "index";
-        }*/
         Task task = taskService.getTaskById(id);
         model.addAttribute("task", task);
         return "task";
-
     }
 }

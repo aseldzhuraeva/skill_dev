@@ -31,6 +31,7 @@ public class SubmissionServiceImpl implements SubmissionService {
                 .submissionDate(LocalDateTime.now())
                 .task(task)
                 .user(user)
+                .ok(request.getOk())
                 .build();
 
         submissionRepository.save(submission);

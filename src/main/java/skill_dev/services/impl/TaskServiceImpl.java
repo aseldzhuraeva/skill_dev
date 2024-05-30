@@ -39,4 +39,10 @@ public class TaskServiceImpl implements TaskService {
     public Task getTaskById(Long id){
         return taskRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("there is no such task"));
     }
+
+    @Override
+    public long countTasks()
+    {
+        return taskRepository.count();
+    }
 }

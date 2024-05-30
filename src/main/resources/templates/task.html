@@ -51,7 +51,7 @@
               <h1 th:text="${task.title}"></h1>
               <p th:text="${task.description}">Напишите функцию на питоне, которая принимает два числа и возвращает наибольшее из них. Функция должна называться f.</p>
               <p th:text="'Баллы: ' + ${task.max_points}">Баллы: 100</p>
-              <form action="/task/1" method="POST">
+              <form  th:action="@{/task/{id}(id=${task.id})}" method="POST">
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Put your answer </label>
                 <textarea class="form-control custom" id="validationTextarea" name="validationTextarea"
