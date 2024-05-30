@@ -27,7 +27,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2-console/**")
                 .antMatchers("/console/**")
                 .antMatchers("/images/**")
-                .antMatchers("/js/**");
+                .antMatchers("/js/**")
+                .antMatchers("/css/**");
     }
 
     @Override
