@@ -2,6 +2,11 @@
     font-weight: bold;
 }
 
+body {
+    background-color:  #f8f3f1;
+}
+
+
 .carousel-caption  {    
     position: absolute;
     top: 50%;  /* Позиционирует текст по центру по вертикали */
@@ -45,16 +50,32 @@
 /* фото профиля */
 
 .avatar-user {
-    border-radius: 50%;
-}
-
-.avatar {
-    line-height: 1;
-    box-shadow: 0 0 0 1px #ffffff26;
+    border-radius: 100%;
 }
 
 
 /* navbar */
+.navbar-brand {
+    color: hsl(163, 94%, 20%);
+    font-size: 40px;
+}
+
+.navbar-brand:hover {
+    color: hsl(163, 94%, 20%);
+}
+
+
+/* text color */
+.active {
+    font-size: 21px;
+    color:   hsl(20deg 100% 57.06% / 93%) !important;
+}
+
+.nav-link {
+    font-size: 21px;
+    color: hsla(0, 0%, 0%, 0.93);
+}
+    
 
 .header {
     background-color: hsla(17.14,33.33%,95.88%,1);
@@ -64,15 +85,92 @@
     background-color: hsla(17.14,33.33%,95.88%,1) !important;
 }
 
-/* text color */
+/* index  */
+section {
+    background-color: #f8f3f1;
+}
 
-.nav-link {
-    color: hsla( 0,0%,0% ,1);
+.card-header {
+    color: #036348;
+    font-weight: bold;
+}
+
+.card-text {
+    color:  #363a39;
+    font-size: 16px;
+}
+
+.btn {
+    background-color: hsl(20deg 100% 57.06% / 93%);
+    border-color: hsl(20deg 100% 57.06% / 93%);
+}
+
+.btn:hover {
+    background-color: hsl(20deg 100% 57.06% / 93%) !important;
+    border-color: #ff6d24ed !important;
+}
+
+.example-header2 {
+    background-color: #1390d967;
+    color:  #363a39;
+}
+
+.example-body2 {
+    background-color:  #1390d937;
+}
+
+.example-text2 {
+    color:  #363a39;
+}
+
+.example-btn2 {
+    background-color: #f2cae6;
+    border-color: #f2cae6;
+    color: #363a39;
+}
+
+.example-btn2:hover {
+    background-color: #f2cae6 !important;
+    border-color: #f2cae6 !important;
+    color: #363a39 !important;
+}
+
+h3 {
+    color: #036348;
 }
 
 
-/* background color */
 
-*{
-    background-color: hsla(17.14,33.33%,95.88%,1);
+/* rating */
+.section-rating {
+    display: block;
+    min-height: 0;
+}
+
+
+
+/* task */
+.section-task {
+    display: block;
+    min-height: 0;
+}
+
+p {
+    color: #036348;
+    font-size: 18px;
+}
+
+/* task_2 */
+.section-task2 {
+    display: block;
+    min-height: 0;
+}
+
+
+/* login */
+
+
+
+.input-box {
+    color: #ff6d24ed ;   
 }
