@@ -28,7 +28,7 @@
                     <a class="nav-link" href="/tasks">Tasks</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/rating">Rating</a>
+                    <a class="nav-link active" aria-current="page" href="/rating">Rating</a>
                   </li>
                   <li th:if="${loggedIn}" class="nav-item">
                     <a class="nav-link" href="/logout">Log out</a>
@@ -49,21 +49,22 @@
       <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
+
           <table class="table">
             <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First name</th>
-                <th scope="col">Last name</th>
-                <th scope="col">Score</th>
+              <tr class="tr-text-color">
+                <th class="th-color" scope="col">#</th>
+                <th class="th-color" scope="col">First name</th>
+                <th class="th-color" scope="col">Last name</th>
+                <th class="th-color" scope="col">Score</th>
               </tr>
             </thead>
             <tbody>
               <tr th:each="ranking, state: ${rankingList}">
-                <th scope="row" th:text="${state.count}"></th>
-                <td th:text="${ranking.userFirstName}"></td>
-                <td th:text="${ranking.userLastName}"></td>
-                <td th:text="${ranking.totalScore}"></td>
+                <th class="th-color" scope="row" th:text="${state.count}"></th>
+                <td class="th-color" th:text="${ranking.userFirstName}"></td>
+                <td class="th-color" th:text="${ranking.userLastName}"></td>
+                <td class="th-color" th:text="${ranking.totalScore}"></td>
               </tr>
             </tbody>
           </table>

@@ -78,7 +78,7 @@ body {
     
 
 .header {
-    background-color: hsla(17.14,33.33%,95.88%,1);
+    background-color: #f8f3f1;
 }
 
 .bg-body-tertiary {
@@ -223,10 +223,65 @@ p {
     color: #036348 !important;
 }
 
+/* registration */
+.login-now-link {
+    color: #036348 !important;
+}
+
+.btn-color-reg {
+    background-color: #ff6d24ed !important;
+}
+
+.btn-color-reg:hover {
+    background-color: #ff6d24ed !important;
+}
+
+.reg-text-color {
+    color: #036348;
+}
+
+
 
 /* task_2 */
 .section-task2 {
     display: block;
     min-height: 0;
+}
+
+/* home */
+
+
+
+.image-container {
+    position: relative; /* Создает контекст для позиционирования дочерних элементов */
+    display: inline-block; /* Чтобы контейнер подстраивался под размер изображения */
+    margin: 0;
+    padding: 0;
+}
+.image-container img {
+    display: block; /* Убирает нижний отступ у изображения */
+    width: 100%; /* Делает изображение адаптивным */
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+.overlay {
+    position: absolute; /* Позиционирует элемент относительно контейнера */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.5); Полупрозрачный черный цвет */
+    pointer-events: none; /* Позволяет кликам проходить через наложение */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* rating */
+
+
+.th-color {
+    color: #036348 !important;
 }
 
