@@ -27,7 +27,7 @@ public class Task extends BaseEntity{
 
     String answer;
 
-    Float max_points;
+    Double max_points;
 
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
     List<Submission> submissions;

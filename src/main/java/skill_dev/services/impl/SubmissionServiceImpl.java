@@ -45,8 +45,8 @@ public class SubmissionServiceImpl implements SubmissionService {
 
 
     @Override
-    public Boolean containsCompletedTask(Long id)
+    public Boolean containsCompletedTask(Long id, Long userId)
     {
-        return submissionRepository.existsByTaskIdAndOk(id, true);
+        return submissionRepository.existsByTaskIdAndUserIdAndOk(id, userId, true);
     }
 }

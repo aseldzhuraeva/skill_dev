@@ -20,6 +20,11 @@ public class UserController {
         return "log_in";
     }
 
+    @GetMapping("/logout-success")
+    public String getLogoutSuccessPage(){
+        return "log_out";
+    }
+
     @GetMapping("/sign-up")
     public String getSignUpPage(){
         return "register";

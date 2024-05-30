@@ -19,5 +19,5 @@ import javax.persistence.Table;
 public class Ranking extends BaseEntity{
     @OneToOne(fetch = FetchType.LAZY)
     User user;
-    Float totalPoints;
+    Double totalPoints;
 }

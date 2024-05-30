@@ -9,7 +9,9 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class RankingDTO {
+
+    Long userId;
     String userFirstName;
     String userLastName;
-    Float totalScore;
+    Double totalScore;
 }

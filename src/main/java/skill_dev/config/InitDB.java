@@ -32,8 +32,8 @@ public class InitDB {
     private void initTasks(){
 
         if (taskService.countTasks() == 0) {
-            createTask("Сумма чисел", "Напишите программу, которая принимает 2 числа через пробел, например \"3 4\" и выводит на экран сумму этих чисел.", "", "1 4", "5", 2.0f);
-            createTask("Переворот строки", "Напишите программу, которая принимает на вход строку и выводим на экран эту же строку наоборот.", "", "abc", "cba", 2.0f);
+            createTask("Сумма чисел", "Напишите программу, которая принимает 2 числа через пробел, например \"3 4\" и выводит на экран сумму этих чисел.", "", "1 4", "5", 1.0);
+            createTask("Переворот строки", "Напишите программу, которая принимает на вход строку и выводим на экран эту же строку наоборот.", "", "abc", "cba", 2.0);
         }
     }
 
@@ -62,7 +62,7 @@ public class InitDB {
 
 
     //task
-    private void createTask(String title, String description, String image, String input, String answer, Float maxPoints) {
+    private void createTask(String title, String description, String image, String input, String answer, Double maxPoints) {
         TaskCreateRequest task = new TaskCreateRequest(
                 title,
                 description,
@@ -91,7 +91,7 @@ public class InitDB {
 
 
     //grade
-    private void estimate(Long submissionId, Float score, String feedback){
+    private void estimate(Long submissionId, Double score, String feedback){
         GradeRequest request = new GradeRequest(submissionId, score, feedback);
         gradeService.estimate(request);
     }

@@ -18,6 +18,6 @@ import javax.persistence.Table;
 public class Grade extends BaseEntity{
     @OneToOne
     Submission submission;
-    Float score;
+    Double score;
     String feedback;
 }

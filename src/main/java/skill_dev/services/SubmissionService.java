@@ -10,5 +10,5 @@ public interface SubmissionService {
     Submission getSubmissionById(Long id);
 
 
-    Boolean containsCompletedTask(Long id);
+    Boolean containsCompletedTask(Long id, Long userId);
 }

@@ -18,5 +18,5 @@ public class TaskCreateRequest {
 
     String answer;
 
-    Float max_points;
+    Double max_points;
 }

@@ -76,10 +76,17 @@ public class TaskController {
     }
 
     @GetMapping("/")
-    public String getHomePage(Model model){
+    public String getHomePage(Model model, @AuthenticationPrincipal User user){
         List<Task> tasks = taskService.getAllTasks();
         System.out.println(tasks.size());
         model.addAttribute("tasks", tasks);
+        if (user == null)
+        {
+            model.addAttribute("loggedIn", false);
+        }
+        else {
+            model.addAttribute("loggedIn", true);
+        }
         return "home";
     }
 
@@ -105,7 +112,7 @@ public class TaskController {
             }
             else
             {
-                if (submissionService.containsCompletedTask(task.getId()-1))
+                if (submissionService.containsCompletedTask(task.getId()-1, user.getId()))
                 {
                     taskExtended.locked = false;
                 }
@@ -145,7 +152,7 @@ public class TaskController {
         }
         else
         {
-            if (submissionService.containsCompletedTask(task.getId()-1))
+            if (submissionService.containsCompletedTask(task.getId()-1, user.getId()))
             {
                 taskExtended.locked = false;
             }

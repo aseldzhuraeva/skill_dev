@@ -13,4 +13,5 @@ public interface RankingRepository extends JpaRepository<Ranking, Long> {
     boolean existsByUserId(Long userId);
 
     List<Ranking> findAllByOrderByTotalPointsDesc();
+
 }
