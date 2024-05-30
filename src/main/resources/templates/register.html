@@ -41,32 +41,32 @@
 </header>
     <section>
       <div class="wrapper">
-        <h1>Register</h1>
+        <h1 class="reg-text-color">Registration</h1>
           <form  th:action="@{/sign-up}" th:object="${user}" method="post" class="m-auto mt-5 text-center" style="width: 100%; max-width: 350px;">
 
               <div class="input-box">
-                  <input id="firstName" type="text" name="firstName" placeholder="Имя" class="form-control" required="" autofocus="">
+                  <input id="firstName" type="text" name="firstName" placeholder="Name" class="form-control" required>
               </div>
               <div class="input-box">
-                  <input id="lastName" type="text" name="lastName" placeholder="Фамилия" class="form-control" required="">
+                  <input id="lastName" type="text" name="lastName" placeholder="Surname" class="form-control" required="">
               </div>
               <div class="input-box">
-                  <input id="username" type="text" name="username" placeholder="Имя пользователя" class="form-control" required="">
+                  <input id="username" type="text" name="username" placeholder="Username" class="form-control" required="">
               </div>
               <div class="input-box">
                   <input id="email" type="text" name="email" placeholder="E-mail" class="form-control" required="">
               </div>
               <div class="input-box">
-                  <input id="password" type="password" name="password" placeholder="Пароль" class="form-control" required="">
+                  <input id="password" type="password" name="password" placeholder="Password" class="form-control" required="">
               </div>
               <div class="input-box">
-                  <input id="password2" type="password" name="password2" placeholder="Повторите пароль" class="form-control" required="">
+                  <input id="password2" type="password" name="password2" placeholder="Password" class="form-control" required="">
               </div>
         <!-- <div class="register-btn"> -->
-            <button type="submit" class="btn">Зарегистрироваться</button>
+            <button type="submit" class="btn btn-color-reg">Register</button>
         <!-- </div> -->
         <div class="login-link">
-          <p>Already have an account? <a href="/login">Login now</a></p>
+          <p>Already have an account? <a class="login-now-link" href="/login">Login now</a></p>
         </div>
           </form>
   </div>
