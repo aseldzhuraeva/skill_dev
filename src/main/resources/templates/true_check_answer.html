@@ -44,10 +44,15 @@
 </header>
 
       <section>
-          <h1>Ваш ответ верный!</h1>
-          <p>Результат вывода вашей программы:</p>
-          <p th:text="${submitRequest.content}">.</p>
-          <a href="/tasks" class="btn btn-primary  col-4" >Вернуться к списку заданий</a>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-8 content">
+            <h3 class="h3-color">Ваш ответ верный!</h3>
+            <p>Результат вывода вашей программы:</p>
+            <p th:text="${submitRequest.content}">.</p>
+            <a href="/tasks" class="btn btn-primary  col-4 color-button" >Вернуться к списку заданий</a>
+        </div>
+
+          <div class="col-lg-1"></div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -48,14 +48,14 @@ public class TaskController {
         Task task = taskService.getTaskById(id);
 
         System.out.println(validationTextarea);
-
+//        для проверки здесь
         String result = pythonRunner.executePythonScript(validationTextarea, task.getInput());
 
 
         System.out.println("Result:");
         System.out.println(result);
         result = result.trim();
-
+//        для проверки здесь
         boolean ok = result.equals(task.getAnswer());
 
         SubmitRequest submitRequest = new SubmitRequest(task.getId(), user.getId(), result, ok);

@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" media="screen">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" media="screen">>
-    <title>Log out</title>
+    <title>Log in</title>
 </head>
 <body>
   <header>
@@ -26,13 +26,13 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/rating">Rating</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/login">Log in</a>
+                    <a class="nav-link active" aria-current="page" href="/login">Log in</a>
                     </li>
                 </ul>
               </div>
@@ -45,7 +45,7 @@
     <section>
       <div class="wrapper">
           <form th:action="@{/login}" method="post">
-        <h1>Login</h1>
+            <h1 class="h1-color-text">Login</h1>
               <div class="input-box">
                   <input id="username" name="username" type="text" placeholder="Username" required>
               </div>
@@ -53,10 +53,10 @@
                   <input id="password" name="password" type="password" placeholder="password" required>
               </div>
 
-              <button type="submit" class="btn">Log in</button>
+              <button type="submit" class="btn btn-color">Log in</button>
 
-              <div class="register-link">
-                  <p>Don't have an account? <a href="/sign-up">Register</a></p>
+              <div class="register-link register-link-color ">
+                  <p>Don't have an account? <a class="register-color" href="/sign-up">Register</a></p>  
               </div>
           </form>
       </div>

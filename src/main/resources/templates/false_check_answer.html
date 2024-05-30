@@ -44,11 +44,16 @@
 </header>
 
       <section>
-        <h1>Ваш ответ неверный</h1>
-          <p>Результат вывода вашей программы:</p>
-          <p th:text="${submitRequest.content}">.</p>
-          
-          <a th:href="@{/task/{id}(id=${task.id})}" class="btn btn-primary  col-4" >Попробовать ещё раз</a>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-8 content">
+              <h3 class="h3-color">Ваш ответ неверный!</h3>
+              <p>Результат вывода вашей программы:</p>
+              <p th:text="${submitRequest.content}">.</p>
+              
+              <a th:href="@{/task/{id}(id=${task.id})}" class="btn btn-primary col-4 color-button" >Попробовать ещё раз</a>
+        </div>
+
+          <div class="col-lg-1"></div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
